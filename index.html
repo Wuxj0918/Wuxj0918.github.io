@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xiaojing Wu HomePage</title>
+  <meta name="description" content="Personal academic homepage template">
+  <style>
+    :root {
+      --page-bg: #ffffff;
+      --nav-bg: #f5f5f5;
+      --text: #333333;
+      --muted: #777777;
+      --link: #1772d0;
+      --link-hover: #f09228;
+      --border: #e4e4e4;
+      --badge: #3d8dbc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding-top: 58px;
+      background: var(--page-bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--link-hover);
+      text-decoration: none;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      min-height: 58px;
+      border-bottom: 1px solid var(--border);
+      background: var(--nav-bg);
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12);
+    }
+
+    .nav-inner {
+      width: min(960px, calc(100% - 30px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 58px;
+    }
+
+    .contact-icons,
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .contact-icons a {
+      min-width: 54px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 10px;
+      border-radius: 4px;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .icon-mail { background: #555555; }
+    .icon-scholar { background: #4b83f1; }
+    .icon-linkedin { background: #0077b5; }
+    .icon-twitter { background: #1da1f2; }
+    .icon-github { background: #24292e; }
+
+    .nav-links a {
+      color: #555555;
+      font-size: 15px;
+      line-height: 1;
+      padding: 22px 4px 19px;
+    }
+
+    .nav-links a.active {
+      color: #111111;
+      font-weight: 700;
+    }
+
+    progress {
+      position: fixed;
+      top: 58px;
+      left: 0;
+      z-index: 999;
+      width: 100%;
+      height: 3px;
+      appearance: none;
+      border: 0;
+      background: transparent;
+    }
+
+    progress::-webkit-progress-bar {
+      background: transparent;
+    }
+
+    progress::-webkit-progress-value {
+      background: var(--badge);
+    }
+
+    progress::-moz-progress-bar {
+      background: var(--badge);
+    }
+
+    .content {
+      width: min(900px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 30px;
+    }
+
+    .top-block {
+      padding-bottom: 22px;
+    }
+
+    h1.title {
+      margin: 0 0 18px;
+      color: #222222;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .affiliation-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .affiliations {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .affiliations li {
+      margin: 0 0 7px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    .intro {
+      overflow: auto;
+      text-align: justify;
+    }
+
+    .intro + .section {
+      margin-top: 42px;
+    }
+
+    .profile-wrap {
+      float: right;
+      width: min(30%, 360px);
+      margin: -12px 0 18px 36px;
+      text-align: center;
+    }
+
+    .profile-img {
+      width: 80%;
+      max-height: 225px;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .photo-credit {
+      margin: 4px 0 0;
+      color: gray;
+      font-size: 11px;
+      line-height: 1.2;
+    }
+
+    .intro p {
+      margin: 0 0 16px;
+    }
+
+    .notice {
+      color: coral;
+      font-style: italic;
+      white-space: nowrap;
+    }
+
+    .section {
+      margin-top: 0;
+    }
+
+    .section + .section {
+      margin-top: 42px;
+    }
+
+    .section h2 {
+      margin: 0 0 20px;
+      color: #222222;
+      font-size: 34px;
+      font-weight: 500;
+      line-height: 1.15;
+    }
+
+    .publication-list {
+      display: grid;
+      gap: 34px;
+    }
+
+    .publication-item {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .publication-media {
+      width: 100%;
+    }
+
+    .publication-badge {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 6px 10px;
+      border-radius: 3px;
+      background: var(--badge);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(61, 141, 188, 0.26);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .publication-placeholder {
+      width: 100%;
+      aspect-ratio: 4 / 2.75;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #d9d9d9;
+      border-radius: 5px;
+      background:
+        linear-gradient(135deg, rgba(61, 141, 188, 0.12) 25%, transparent 25%) 0 0 / 22px 22px,
+        linear-gradient(135deg, transparent 75%, rgba(61, 141, 188, 0.12) 75%) 0 0 / 22px 22px,
+        #f7f7f7;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .publication-figure {
+      width: 100%;
+      display: block;
+      border-radius: 5px;
+      border: 1px solid #d9d9d9;
+      background: #ffffff;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+    }
+
+    .publication-title {
+      margin: 0 0 6px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .publication-authors {
+      margin: 0 0 5px;
+      color: #111111;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .publication-authors strong {
+      font-weight: 700;
+    }
+
+    .publication-authors a {
+      border-bottom: 1px dashed currentColor;
+      color: var(--link);
+    }
+
+    .publication-venue {
+      margin: 0 0 12px;
+      color: #111111;
+      font-size: 16px;
+      font-style: italic;
+      line-height: 1.55;
+    }
+
+    .publication-year {
+      font-style: normal;
+    }
+
+    .publication-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .publication-links a {
+      display: inline-flex;
+      min-width: 72px;
+      min-height: 32px;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 12px;
+      border: 1px solid #111111;
+      border-radius: 3px;
+      color: #111111;
+      background: #ffffff;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .publication-links a:hover {
+      border-color: var(--badge);
+      color: var(--badge);
+    }
+
+    .publication-metric {
+      display: inline-flex;
+      min-height: 32px;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 12px;
+      border: 1px solid var(--badge);
+      border-radius: 3px;
+      color: var(--badge);
+      background: rgba(61, 141, 188, 0.08);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 145px minmax(0, 1fr);
+      gap: 16px;
+      margin-bottom: 18px;
+      align-items: start;
+    }
+
+    .date-badge {
+      display: inline-block;
+      margin-left: 10px;
+      padding: 6px 9px;
+      border-radius: 2px;
+      background: var(--badge);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .news-text {
+      color: #555555;
+      font-weight: 300;
+    }
+
+    .news-text p {
+      margin: 0;
+    }
+
+    .news-highlight {
+      color: #c62828;
+      font-weight: 700;
+    }
+
+    .older-news {
+      margin-top: 8px;
+    }
+
+    .older-news summary {
+      width: fit-content;
+      cursor: pointer;
+      padding: 4px 8px;
+      border: 1px solid #333333;
+      border-radius: 4px;
+      color: #222222;
+      font-size: 13px;
+      list-style: none;
+    }
+
+    .older-news summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .older-news[open] summary {
+      margin-bottom: 16px;
+    }
+
+    footer {
+      width: min(900px, calc(100% - 32px));
+      margin: 18px auto 30px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding-top: 98px;
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+        padding: 10px 0;
+      }
+
+      .contact-icons,
+      .nav-links {
+        max-width: 100%;
+        overflow-x: auto;
+      }
+
+      .nav-links a {
+        padding: 8px 2px 6px;
+      }
+
+      progress {
+        top: 98px;
+      }
+
+      .content {
+        padding-top: 26px;
+      }
+
+      h1.title {
+        font-size: 36px;
+      }
+
+      .affiliation-row {
+        display: block;
+      }
+
+      .profile-wrap {
+        float: none;
+        width: min(100%, 340px);
+        margin: 0 0 20px;
+      }
+
+      .intro {
+        margin-bottom: 0;
+      }
+
+      .intro + .section {
+        margin-top: 34px;
+      }
+
+      .section + .section {
+        margin-top: 34px;
+      }
+
+      .profile-img {
+        width: 100%;
+        height: auto;
+      }
+
+      .publication-list {
+        gap: 36px;
+      }
+
+      .publication-item {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .publication-media {
+        max-width: 360px;
+      }
+
+      .publication-title {
+        font-size: 18px;
+      }
+
+      .publication-authors,
+      .publication-venue {
+        font-size: 16px;
+      }
+
+      .news-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        margin-bottom: 20px;
+      }
+
+      .date-badge {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" aria-label="Primary">
+    <div class="nav-inner">
+      <div class="contact-icons" aria-label="Contact links">
+        <a class="icon-mail" href="mailto:3220235329@bit.edu.cn" title="Email">Mail</a>
+        <a class="icon-scholar" href="https://scholar.google.com/citations?user=62e5CygAAAAJ&hl=en" title="Google Scholar">Scholar</a>
+        <!-- <a class="icon-linkedin" href="https://www.linkedin.com/in/andreea-bobu-a2940277/" title="LinkedIn">in</a>
+        <a class="icon-twitter" href="https://twitter.com/andreea7b" title="Twitter">X</a> -->
+        <a class="icon-github" href="https://github.com/andreea7b" title="GitHub">GitHub</a>
+      </div>
+      <div class="nav-links" aria-label="Site navigation">
+        <a class="active" href="./">About</a>
+        <a href="#news">News</a>
+        <a href="#publications">Publications</a>
+      </div>
+    </div>
+  </nav>
+
+  <progress id="progress" value="0" max="100" aria-hidden="true"></progress>
+
+  <main class="content">
+    <header class="top-block">
+      <h1 class="title">Xiaojing Wu</h1>
+      <div class="affiliation-row">
+        <ul class="affiliations">
+          <li><a href="https://www.bit.edu.cn/">Beijing Institute of Technology</a></li>
+          <li><a href="https://sie.bit.edu.cn/">School of Information and Electronics</a></li>
+          <li><a href="https://maps.app.goo.gl/3ZqQryukCAkGdPZb7">No. 5 Zhongguancun Avenue, Weigongcun, Haidian District, Beijing</a></li>
+          <li>Email: <a href="mailto:3220235329@bit.edu.cn">3220235329@bit.edu.cn</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <section class="intro" aria-label="Introduction">
+      <div class="profile-wrap">
+        <img class="profile-img" src="./assets/photo.jpg" alt="Profile photo">
+      </div>
+
+      <p>
+        I am a third-year Ph.D. student at the <a href="https://www.bit.edu.cn/">Beijing Institute of Technology</a> supervised by <a href="https://radar.bit.edu.cn/szdw/jsfc/myld1/04fc8de3bcb6412b8484e7f6c27d6704.htm" target="_blank">Prof. Feifeng Liu</a>. Previously, I received my B.S. degree from electronic information engineering at <a href="https://www.jlu.edu.cn/">JiLin University</a> in 2022. </p>
+        
+      <p>
+        My research interests include change detection technology based on global navigation satellite system-based SAR interferometry systems, particularly in:
+        <ul>
+          <li>GNSS-based InSAR deformation monitoring and inversion</li>
+          <li>Multi-satellite collaborative observation and data fusion for deformation estimation</li>
+          <li>High-frequency deformation monitoring and early warning for infrastructure and geohazards</li>
+        </ul>
+      </p>
+
+      <p>
+      💌 Please feel free to contact me if you would like to explore potential discussions or collaborations.
+      </p>
+
+    </section>
+
+    <section class="section News" id="news" aria-labelledby="news-heading">
+      <h2 id="news-heading">News</h2>
+
+      <article class="news-item">
+        <div><span class="date-badge">May 15, 2026</span></div>
+        <div class="news-text">
+          <p>
+            Reported at the <strong>Academic Conference on Radar Interferometry</strong> in Chengdu and received the
+            <span class="news-highlight">Excellent Conference Presentation Award (5%)</span> 🎉.
+          </p>
+        </div>
+      </article>
+
+      <article class="news-item">
+        <div><span class="date-badge">Nov 21, 2025</span></div>
+        <div class="news-text">
+          <p>
+            Reported at the <strong>International Radar Conference</strong> in Jiaxing and received the
+            <span class="news-highlight">Excellent Paper Award (10%)</span> 🎉.
+          </p>
+        </div>
+      </article>
+
+      <article class="news-item">
+        <div><span class="date-badge">Aug 08, 2025</span></div>
+        <div class="news-text">
+          <p>One paper accepted at Transactions on Geoscience & Remote Sensing 2025.</p>
+        </div>
+      </article>
+
+      <article class="news-item">
+        <div><span class="date-badge">Aug 23, 2024</span></div>
+        <div class="news-text">
+          <p>One paper accepted at Transactions on Geoscience & Remote Sensing 2024.</p>
+        </div>
+      </article>
+
+      <article class="news-item">
+        <div><span class="date-badge">Oct 11, 2021</span></div>
+        <div class="news-text">
+          <p>Awarded the <span class="news-highlight">National Scholarship (1%)</span> in 2021 ✨.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section publications" id="publications" aria-labelledby="publications-heading">
+      <h2 id="publications-heading">Selected Publications</h2>
+
+      <div class="publication-list">
+        <article class="publication-item">
+          <div class="publication-media">
+            <div class="publication-badge">TGRS 2025</div>
+            <img class="publication-figure" src="./assets/2025-tgrs-fig.png" alt="Figure preview for GNSS-based InBSAR publication">
+          </div>
+          <div class="publication-content">
+            <h3 class="publication-title">An Adaptive High-Accuracy Terrain Phase Error Compensation Algorithm in GNSS-based InBSAR via Multi-Satellite Collaborative Observations</h3>
+            <p class="publication-authors">
+              <strong>Xiaojing Wu</strong>, Chenghao Wang, Zhanze Wang, Feifeng Liu, and Jiayu Chen
+            </p>
+            <p class="publication-venue">
+              IEEE Transactions on Geoscience and Remote Sensing <span class="publication-year">2025</span>
+            </p>
+            <div class="publication-links" aria-label="Publication links">
+              <a href="https://ieeexplore.ieee.org/document/11124205">PDF</a>
+              <span class="publication-metric">IF: 8.6</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="publication-item">
+          <div class="publication-media">
+            <div class="publication-badge">TGRS 2024</div>
+            <img class="publication-figure" src="./assets/2024-tgrs-fig.png" alt="Figure preview for GNSS-based InBSAR publication">
+          </div>
+          <div class="publication-content">
+            <h3 class="publication-title">3-D Deformation Fields Construction based on Spatial and Temporal Continuity for GNSS-based InBSAR: Verified and Enhanced by GB-SAR</h3>
+            <p class="publication-authors">
+              Feifeng Liu, <strong>Xiaojing Wu</strong>, Zhanze Wang, Chenghao Wang, and Jiayu Chen
+            </p>
+            <p class="publication-venue">
+              IEEE Transactions on Geoscience and Remote Sensing <span class="publication-year">2024</span>
+            </p>
+            <div class="publication-links" aria-label="Publication links">
+              <a href="https://ieeexplore.ieee.org/document/10654285">PDF</a>
+              <span class="publication-metric">IF: 8.6</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; Copyright 2026 Xiaojing Wu.
+  </footer>
+
+  <script>
+    (function () {
+      var progress = document.getElementById("progress");
+      function updateProgress() {
+        var scrollTop = window.scrollY || document.documentElement.scrollTop;
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        progress.max = max > 0 ? max : 100;
+        progress.value = max > 0 ? scrollTop : 0;
+      }
+      window.addEventListener("scroll", updateProgress, { passive: true });
+      window.addEventListener("resize", updateProgress);
+      updateProgress();
+    })();
+  </script>
+</body>
+</html>
