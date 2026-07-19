@@ -276,10 +276,26 @@
     .publication-figure {
       width: 100%;
       display: block;
-      border-radius: 5px;
+      transition: transform 220ms ease-out;
+    }
+
+    .publication-image-frame {
+      overflow: hidden;
       border: 1px solid #d9d9d9;
+      border-radius: 5px;
       background: #ffffff;
       box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+      cursor: zoom-in;
+      transition: transform 220ms ease-out, box-shadow 220ms ease-out;
+    }
+
+    .publication-image-frame:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    .publication-image-frame:hover .publication-figure {
+      transform: scale(1.12);
     }
 
     .publication-title {
@@ -393,9 +409,23 @@
       margin: 0;
     }
 
-    .news-highlight {
-      color: #c62828;
+    .news-text .award-link {
+      color: var(--link);
       font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .news-text .award-link:hover {
+      color: var(--link-hover);
+      text-decoration-line: underline;
+      text-decoration-style: dashed;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
+    .news-text .award-link:focus-visible {
+      outline: 2px solid var(--link-hover);
+      outline-offset: 2px;
     }
 
     .older-news {
@@ -428,6 +458,22 @@
       border-top: 1px solid var(--border);
       color: var(--muted);
       font-size: 13px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .publication-figure {
+        transition: none;
+      }
+
+      .publication-image-frame,
+      .publication-image-frame:hover {
+        transform: none;
+        transition: none;
+      }
+
+      .publication-image-frame:hover .publication-figure {
+        transform: none;
+      }
     }
 
     @media (max-width: 720px) {
@@ -589,7 +635,7 @@
         <div class="news-text">
           <p>
             Reported at the <strong>Academic Conference on Radar Interferometry</strong> in Chengdu and received the
-            <span class="news-highlight">Excellent Conference Presentation Award (5%)</span> 🎉.
+            <a class="award-link" href="./assets/Radar_Interferometry_2026.pdf" target="_blank" rel="noopener noreferrer" aria-label="View the 2026 Excellent Conference Presentation Award certificate">Excellent Conference Presentation Award (5%)</a> 🎉.
           </p>
         </div>
       </article>
@@ -599,7 +645,7 @@
         <div class="news-text">
           <p>
             Reported at the <strong>International Radar Conference</strong> in Jiaxing and received the
-            <span class="news-highlight">Excellent Paper Award (10%)</span> 🎉.
+            <a class="award-link" href="./assets/IRC_2025.pdf" target="_blank" rel="noopener noreferrer" aria-label="View the 2025 Excellent Paper Award certificate">Excellent Paper Award (10%)</a> 🎉.
           </p>
         </div>
       </article>
@@ -621,7 +667,9 @@
       <article class="news-item">
         <div><span class="date-badge">Oct 11, 2021</span></div>
         <div class="news-text">
-          <p>Awarded the <span class="news-highlight">National Scholarship (1%)</span> in 2021 ✨.</p>
+          <p>
+            Awarded the <a class="award-link" href="./assets/National_Scholarship_2021.pdf" target="_blank" rel="noopener noreferrer" aria-label="View the 2021 National Scholarship certificate">National Scholarship (1%)</a> in 2021 ✨.
+          </p>
         </div>
       </article>
     </section>
@@ -633,7 +681,9 @@
         <article class="publication-item">
           <div class="publication-media">
             <div class="publication-badge">TGRS 2025</div>
-            <img class="publication-figure" src="./assets/2025-tgrs-fig.png" alt="Figure preview for GNSS-based InBSAR publication">
+            <div class="publication-image-frame">
+              <img class="publication-figure" src="./assets/2025-tgrs-fig.png" alt="Figure preview for GNSS-based InBSAR publication">
+            </div>
           </div>
           <div class="publication-content">
             <h3 class="publication-title">An Adaptive High-Accuracy Terrain Phase Error Compensation Algorithm in GNSS-based InBSAR via Multi-Satellite Collaborative Observations</h3>
@@ -653,7 +703,9 @@
         <article class="publication-item">
           <div class="publication-media">
             <div class="publication-badge">TGRS 2024</div>
-            <img class="publication-figure" src="./assets/2024-tgrs-fig.png" alt="Figure preview for GNSS-based InBSAR publication">
+            <div class="publication-image-frame">
+              <img class="publication-figure" src="./assets/2024-tgrs-fig.png" alt="Figure preview for GNSS-based InBSAR publication">
+            </div>
           </div>
           <div class="publication-content">
             <h3 class="publication-title">3-D Deformation Fields Construction based on Spatial and Temporal Continuity for GNSS-based InBSAR: Verified and Enhanced by GB-SAR</h3>
