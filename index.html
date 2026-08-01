@@ -15,6 +15,7 @@
       --link-hover: #f09228;
       --border: #e4e4e4;
       --badge: #3d8dbc;
+      --body-font-size: 17px;
     }
 
     * {
@@ -27,7 +28,7 @@
       background: var(--page-bg);
       color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      font-size: 17px;
+      font-size: var(--body-font-size);
       line-height: 1.55;
     }
 
@@ -197,7 +198,21 @@
     }
 
     .intro p {
-      margin: 0 0 16px;
+      margin: 0 0 14px;
+    }
+
+    .intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    .intro ul {
+      margin: 0 0 14px;
+      padding-left: 34px;
+      text-align: left;
+    }
+
+    .intro li + li {
+      margin-top: 4px;
     }
 
     .notice {
@@ -239,16 +254,21 @@
     }
 
     .publication-badge {
-      display: inline-block;
-      margin-bottom: 14px;
+      width: 100%;
+      min-height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 4px;
       padding: 6px 10px;
-      border-radius: 3px;
+      border-radius: 6px;
       background: var(--badge);
       color: #ffffff;
       box-shadow: 0 4px 12px rgba(61, 141, 188, 0.26);
       font-size: 14px;
       font-weight: 700;
       line-height: 1;
+      text-align: center;
       white-space: nowrap;
     }
 
@@ -272,10 +292,13 @@
 
     .publication-figure {
       width: 100%;
+      height: 100%;
       display: block;
+      object-fit: fill;
     }
 
     .publication-image-frame {
+      aspect-ratio: 12 / 5;
       overflow: hidden;
       border: 1px solid #d9d9d9;
       border-radius: 5px;
@@ -302,7 +325,7 @@
     .publication-authors {
       margin: 0 0 5px;
       color: #111111;
-      font-size: 16px;
+      font-size: var(--body-font-size);
       line-height: 1.55;
     }
 
@@ -318,7 +341,7 @@
     .publication-venue {
       margin: 0 0 12px;
       color: #111111;
-      font-size: 16px;
+      font-size: var(--body-font-size);
       font-style: italic;
       line-height: 1.55;
     }
@@ -370,6 +393,34 @@
       line-height: 1;
     }
 
+    .publication-ranking {
+      display: inline-flex;
+      min-height: 32px;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 12px;
+      border: 1px solid var(--badge);
+      border-radius: 3px;
+      color: #ffffff;
+      background: var(--badge);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .academic-service-list {
+      margin: 0;
+      padding-left: 28px;
+      color: #333333;
+      font-size: var(--body-font-size);
+      line-height: 1.55;
+    }
+
+    .academic-service-list li {
+      padding-left: 4px;
+    }
+
     .news-item {
       display: grid;
       grid-template-columns: 145px minmax(0, 1fr);
@@ -380,25 +431,33 @@
 
     .date-badge {
       display: inline-block;
+      width: 112px;
       margin-left: 10px;
       padding: 6px 9px;
       border-radius: 2px;
       background: var(--badge);
       color: #ffffff;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
       line-height: 1;
+      text-align: center;
       text-transform: uppercase;
       white-space: nowrap;
     }
 
     .news-text {
       color: #555555;
+      font-size: var(--body-font-size);
       font-weight: 300;
     }
 
     .news-text p {
       margin: 0;
+    }
+
+    .news-text .venue-highlight {
+      color: #111111;
+      font-weight: 700;
     }
 
     .news-text .award-link {
@@ -540,7 +599,7 @@
 
       .publication-authors,
       .publication-venue {
-        font-size: 16px;
+        font-size: var(--body-font-size);
       }
 
       .news-item {
@@ -594,19 +653,25 @@
       </div>
 
       <p>
-        I am a third-year Ph.D. student at the <a href="https://www.bit.edu.cn/">Beijing Institute of Technology</a> supervised by <a href="https://radar.bit.edu.cn/szdw/jsfc/myld1/04fc8de3bcb6412b8484e7f6c27d6704.htm" target="_blank">Prof. Feifeng Liu</a> and <a href="https://radar.bit.edu.cn/szdw/jsfc/gjjrc/5eb7ffa470c1481494e211950f9bb301.htm" target="_blank">Prof. Tao Zeng</a>. Previously, I received my B.S. degree from electronic information engineering at <a href="https://www.jlu.edu.cn/">JiLin University</a> in 2022. </p>
-        
-      <p>
-        My research interests include change detection technology based on global navigation satellite system-based SAR interferometry systems, particularly in:
-        <ul>
-          <li>GNSS-based InSAR deformation monitoring and inversion</li>
-          <li>Multi-satellite collaborative observation and data fusion for deformation estimation</li>
-          <li>High-frequency deformation monitoring and early warning for infrastructure and geohazards</li>
-        </ul>
+        I am a third-year Ph.D. student at the <a href="https://www.bit.edu.cn/">Beijing Institute of Technology</a> supervised by <a href="https://radar.bit.edu.cn/szdw/jsfc/myld1/04fc8de3bcb6412b8484e7f6c27d6704.htm" target="_blank">Prof. Feifeng Liu</a> and <a href="https://radar.bit.edu.cn/szdw/jsfc/gjjrc/5eb7ffa470c1481494e211950f9bb301.htm" target="_blank">Prof. Tao Zeng</a>.
       </p>
 
       <p>
-      💌 Please feel free to contact me if you would like to explore potential discussions or collaborations.
+        Previously, I received my B.S. degree from electronic information engineering at <a href="https://www.jlu.edu.cn/">JiLin University</a> in 2022.
+      </p>
+        
+      <p>
+        My research interests include change detection technology based on global navigation satellite system-based SAR interferometry systems, particularly in:
+      </p>
+
+      <ul>
+        <li>GNSS-based InSAR deformation monitoring and inversion</li>
+        <li>Multi-satellite collaborative observation and data fusion for deformation estimation</li>
+        <li>High-frequency deformation monitoring and early warning for infrastructure and geohazards</li>
+      </ul>
+
+      <p>
+        💌 Please feel free to contact me if you would like to explore potential discussions or collaborations.
       </p>
 
     </section>
@@ -637,14 +702,14 @@
       <article class="news-item">
         <div><span class="date-badge">Aug 08, 2025</span></div>
         <div class="news-text">
-          <p>One paper accepted at Transactions on Geoscience & Remote Sensing 2025.</p>
+          <p>One paper accepted at <strong class="venue-highlight">Transactions on Geoscience &amp; Remote Sensing</strong>.</p>
         </div>
       </article>
 
       <article class="news-item">
         <div><span class="date-badge">Aug 23, 2024</span></div>
         <div class="news-text">
-          <p>One paper accepted at Transactions on Geoscience & Remote Sensing 2024.</p>
+          <p>One paper accepted at <strong class="venue-highlight">Transactions on Geoscience &amp; Remote Sensing</strong>.</p>
         </div>
       </article>
 
@@ -652,7 +717,7 @@
         <div><span class="date-badge">Oct 11, 2021</span></div>
         <div class="news-text">
           <p>
-            Awarded the <a class="award-link" href="./assets/National_Scholarship_2021.pdf" target="_blank" rel="noopener noreferrer" aria-label="View the 2021 National Scholarship certificate">National Scholarship (1%)</a> in 2021 ✨.
+            Awarded the <a class="award-link" href="./assets/National_Scholarship_2021.pdf" target="_blank" rel="noopener noreferrer" aria-label="View the 2021 National Scholarship certificate">National Scholarship (1%)</a> in 2021 🎉.
           </p>
         </div>
       </article>
@@ -680,6 +745,7 @@
             <div class="publication-links" aria-label="Publication links">
               <a href="https://ieeexplore.ieee.org/document/11124205">PDF</a>
               <span class="publication-metric">IF: 9.4</span>
+              <span class="publication-ranking">SCI Q1 Top</span>
             </div>
           </div>
         </article>
@@ -702,10 +768,18 @@
             <div class="publication-links" aria-label="Publication links">
               <a href="https://ieeexplore.ieee.org/document/10654285">PDF</a>
               <span class="publication-metric">IF: 9.4</span>
+              <span class="publication-ranking">SCI Q1 Top</span>
             </div>
           </div>
         </article>
       </div>
+    </section>
+
+    <section class="section academic-service" id="service" aria-labelledby="service-heading">
+      <h2 id="service-heading">Academic Service</h2>
+      <ul class="academic-service-list">
+        <li>Journal Reviewer for IEEE Geoscience and Remote Sensing Letters (GRSL).</li>
+      </ul>
     </section>
   </main>
 
