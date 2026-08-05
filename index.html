@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xiaojing Wu HomePage</title>
+  <title>Xiaojing Wu (武小靖) - Homepage</title>
   <meta name="description" content="Personal academic homepage template">
   <style>
     :root {
@@ -15,6 +15,7 @@
       --link-hover: #f09228;
       --border: #e4e4e4;
       --badge: #3d8dbc;
+      --jcr-badge: #5c70c4;
       --body-font-size: 17px;
     }
 
@@ -92,6 +93,7 @@
     .icon-linkedin { background: #0077b5; }
     .icon-twitter { background: #1da1f2; }
     .icon-github { background: #24292e; }
+    .icon-wechat { background: #2faf73; }
 
     .nav-links a {
       color: #555555;
@@ -163,7 +165,7 @@
 
     .affiliations li {
       margin: 0 0 7px;
-      color: var(--muted);
+      color: var(--text);
       font-size: 16px;
       line-height: 1.25;
     }
@@ -409,6 +411,11 @@
       white-space: nowrap;
     }
 
+    .publication-ranking.jcr-ranking {
+      border-color: var(--jcr-badge);
+      background: var(--jcr-badge);
+    }
+
     .academic-service-list {
       margin: 0;
       padding-left: 28px;
@@ -623,11 +630,13 @@
         <!-- <a class="icon-linkedin" href="https://www.linkedin.com/in/andreea-bobu-a2940277/" title="LinkedIn">in</a>
         <a class="icon-twitter" href="https://twitter.com/andreea7b" title="Twitter">X</a> -->
         <a class="icon-github" href="https://github.com/Wuxj0918" title="GitHub">GitHub</a>
+        <a class="icon-wechat" href="./assets/wechat-qr.png" target="_blank" rel="noopener noreferrer" title="WeChat QR Code">WeChat</a>
       </div>
       <div class="nav-links" aria-label="Site navigation">
         <a class="active" href="./">About</a>
         <a href="#news">News</a>
         <a href="#publications">Publications</a>
+        <a href="./assets/CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
       </div>
     </div>
   </nav>
@@ -636,13 +645,12 @@
 
   <main class="content">
     <header class="top-block">
-      <h1 class="title">Xiaojing Wu</h1>
+      <h1 class="title">Xiaojing Wu (武小靖)</h1>
       <div class="affiliation-row">
         <ul class="affiliations">
-          <li><a href="https://www.bit.edu.cn/">Beijing Institute of Technology</a></li>
-          <li><a href="https://sie.bit.edu.cn/">School of Information and Electronics</a></li>
-          <li><a href="https://maps.app.goo.gl/3ZqQryukCAkGdPZb7">No. 5 Zhongguancun Avenue, Weigongcun, Haidian District, Beijing</a></li>
-          <li>Email: <a href="mailto:3220235329@bit.edu.cn">3220235329@bit.edu.cn</a></li>
+          <li><a href="https://radar.bit.edu.cn/">Radar Technology Research Institute</a>, Key Laboratory of Electronic and Information Technology in Satellite Navigation</li>
+          <li><a href="https://maps.app.goo.gl/3ZqQryukCAkGdPZb7">Beijing Institute of Technology, No. 5 Zhongguancun Avenue, Haidian District, Beijing</a></li>
+          <li>Email: <a href="mailto:3220235329@bit.edu.cn">3220235329@bit.edu.cn</a> | <a href="mailto:sample@gmail.com">sample@gmail.com</a></li>
         </ul>
       </div>
     </header>
@@ -653,11 +661,11 @@
       </div>
 
       <p>
-        I am a third-year Ph.D. student at the <a href="https://www.bit.edu.cn/">Beijing Institute of Technology</a> supervised by <a href="https://radar.bit.edu.cn/szdw/jsfc/myld1/04fc8de3bcb6412b8484e7f6c27d6704.htm" target="_blank">Prof. Feifeng Liu</a> and <a href="https://radar.bit.edu.cn/szdw/jsfc/gjjrc/5eb7ffa470c1481494e211950f9bb301.htm" target="_blank">Prof. Tao Zeng</a>.
+        I am currently a third-year Ph.D. student in Information and Communication Engineering at the <a href="https://www.bit.edu.cn/">Beijing Institute of Technology</a> supervised by <a href="https://radar.bit.edu.cn/szdw/jsfc/myld1/04fc8de3bcb6412b8484e7f6c27d6704.htm" target="_blank">Prof. Feifeng Liu</a> and <a href="https://radar.bit.edu.cn/szdw/jsfc/gjjrc/5eb7ffa470c1481494e211950f9bb301.htm" target="_blank">Prof. Tao Zeng</a>.
       </p>
 
       <p>
-        Previously, I received my B.S. degree from electronic information engineering at <a href="https://www.jlu.edu.cn/">JiLin University</a> in 2022.
+        Previously, I received the B.S. degree from Electronic and Information Engineering at <a href="https://www.jlu.edu.cn/">JiLin University</a> in 2022.
       </p>
         
       <p>
@@ -671,7 +679,7 @@
       </ul>
 
       <p>
-        💌 Please feel free to contact me if you would like to explore potential discussions or collaborations.
+        📧 Please feel free to contact me if you would like to explore potential discussions or collaborations.
       </p>
 
     </section>
@@ -684,7 +692,7 @@
         <div class="news-text">
           <p>
             Reported at the <strong>Academic Conference on Radar Interferometry</strong> in Chengdu and received the
-            <a class="award-link" href="./assets/Radar_Interferometry_2026.pdf" target="_blank" rel="noopener noreferrer" aria-label="View the 2026 Excellent Conference Presentation Award certificate">Excellent Conference Presentation Award (5%)</a> 🎉.
+            <a class="award-link" href="./assets/Radar_Interferometry_2026.pdf" target="_blank" rel="noopener noreferrer" aria-label="View the 2026 Excellent Conference Presentation Award certificate">Excellent Conference Presentation Award (Top 5% Awarded)</a> 🎉.
           </p>
         </div>
       </article>
@@ -694,7 +702,7 @@
         <div class="news-text">
           <p>
             Reported at the <strong>International Radar Conference</strong> in Jiaxing and received the
-            <a class="award-link" href="./assets/IRC_2025.pdf" target="_blank" rel="noopener noreferrer" aria-label="View the 2025 Excellent Paper Award certificate">Excellent Paper Award (10%)</a> 🎉.
+            <a class="award-link" href="./assets/IRC_2025.pdf" target="_blank" rel="noopener noreferrer" aria-label="View the 2025 Excellent Paper Award certificate">Excellent Paper Award (Top 10% Awarded)</a> 🎉.
           </p>
         </div>
       </article>
@@ -717,7 +725,7 @@
         <div><span class="date-badge">Oct 11, 2021</span></div>
         <div class="news-text">
           <p>
-            Awarded the <a class="award-link" href="./assets/National_Scholarship_2021.pdf" target="_blank" rel="noopener noreferrer" aria-label="View the 2021 National Scholarship certificate">National Scholarship (1%)</a> in 2021 🎉.
+            Awarded the <a class="award-link" href="./assets/National_Scholarship_2021.pdf" target="_blank" rel="noopener noreferrer" aria-label="View the 2021 National Scholarship certificate">National Scholarship (Highest Honor, Top 1% Awarded)</a> in 2021 🎉.
           </p>
         </div>
       </article>
@@ -746,6 +754,7 @@
               <a href="https://ieeexplore.ieee.org/document/11124205">PDF</a>
               <span class="publication-metric">IF: 9.4</span>
               <span class="publication-ranking">SCI Q1 Top</span>
+              <span class="publication-ranking jcr-ranking" title="Journal Citation Reports Quartile 1">JCR Q1</span>
             </div>
           </div>
         </article>
@@ -760,7 +769,8 @@
           <div class="publication-content">
             <h3 class="publication-title">3-D Deformation Fields Construction based on Spatial and Temporal Continuity for GNSS-based InBSAR: Verified and Enhanced by GB-SAR</h3>
             <p class="publication-authors">
-              Feifeng Liu, <strong>Xiaojing Wu</strong>, Zhanze Wang, Chenghao Wang, and Jiayu Chen
+              <strong>Feifeng Liu<sup>*</sup></strong>, <strong>Xiaojing Wu<sup>*</sup></strong>, Zhanze Wang, Chenghao Wang, and Jiayu Chen.<br>
+              (<sup>*</sup>Co-first authors.)
             </p>
             <p class="publication-venue">
               IEEE Transactions on Geoscience and Remote Sensing <span class="publication-year">2024</span>
@@ -769,6 +779,7 @@
               <a href="https://ieeexplore.ieee.org/document/10654285">PDF</a>
               <span class="publication-metric">IF: 9.4</span>
               <span class="publication-ranking">SCI Q1 Top</span>
+              <span class="publication-ranking jcr-ranking" title="Journal Citation Reports Quartile 1">JCR Q1</span>
             </div>
           </div>
         </article>
