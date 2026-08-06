@@ -15,6 +15,10 @@
       --link-hover: #f09228;
       --border: #e4e4e4;
       --badge: #3d8dbc;
+      --conference-badge: #208368;
+      --conference-label: #208368;
+      --conference-ink: #1d3b31;
+      --presentation-red: #ce2c31;
       --jcr-badge: #5c70c4;
       --body-font-size: 17px;
     }
@@ -239,6 +243,46 @@
       line-height: 1.15;
     }
 
+    .publication-group + .publication-group {
+      margin-top: 44px;
+    }
+
+    .publication-category {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 0 0 24px;
+      color: #333333;
+      font-size: 21px;
+      font-weight: 650;
+      line-height: 1.2;
+    }
+
+    .publication-category::after {
+      height: 1px;
+      flex: 1;
+      background: var(--border);
+      content: "";
+    }
+
+    .publication-category-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .publication-category-label::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--badge);
+      content: "";
+    }
+
+    .publication-group.conference-papers .publication-category-label::before {
+      background: var(--conference-badge);
+    }
+
     .publication-list {
       display: grid;
       gap: 34px;
@@ -274,6 +318,12 @@
       white-space: nowrap;
     }
 
+    .publication-badge.conference-badge {
+      background: var(--conference-label);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(32, 131, 104, 0.24);
+    }
+
     .publication-placeholder {
       width: 100%;
       aspect-ratio: 4 / 2.75;
@@ -296,10 +346,16 @@
       width: 100%;
       height: 100%;
       display: block;
-      object-fit: fill;
+      object-fit: contain;
+    }
+
+    .publication-figure.poster-preview {
+      object-fit: cover;
+      object-position: top;
     }
 
     .publication-image-frame {
+      display: block;
       aspect-ratio: 12 / 5;
       overflow: hidden;
       border: 1px solid #d9d9d9;
@@ -308,6 +364,10 @@
       box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
       cursor: zoom-in;
       transition: transform 220ms ease-out, box-shadow 220ms ease-out;
+    }
+
+    .journal-articles .publication-image-frame {
+      aspect-ratio: 2 / 1;
     }
 
     .publication-image-frame:hover {
@@ -416,6 +476,31 @@
       background: var(--jcr-badge);
     }
 
+    .conference-papers .publication-venue {
+      margin-bottom: 4px;
+    }
+
+    .publication-presentation-inline {
+      color: var(--presentation-red);
+      font-weight: 700;
+    }
+
+    .author-award-separator {
+      margin: 0 4px;
+      color: #aaaaaa;
+      font-weight: 400;
+    }
+
+    .publication-award-inline {
+      color: var(--presentation-red);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .award-icon {
+      margin-right: 3px;
+    }
+
     .academic-service-list {
       margin: 0;
       padding-left: 28px;
@@ -467,6 +552,7 @@
       font-weight: 700;
     }
 
+    .news-text .award-highlight,
     .news-text .award-link {
       color: var(--link);
       font-weight: 700;
@@ -626,7 +712,7 @@
     <div class="nav-inner">
       <div class="contact-icons" aria-label="Contact links">
         <a class="icon-mail" href="mailto:3220235329@bit.edu.cn" title="Email">Mail</a>
-        <a class="icon-scholar" href="https://scholar.google.com/citations?user=62e5CygAAAAJ&hl=en" title="Google Scholar">Scholar</a>
+        <a class="icon-scholar" href="https://ieeexplore.ieee.org/author/37089069539" title="Scholar">Scholar</a>
         <!-- <a class="icon-linkedin" href="https://www.linkedin.com/in/andreea-bobu-a2940277/" title="LinkedIn">in</a>
         <a class="icon-twitter" href="https://twitter.com/andreea7b" title="Twitter">X</a> -->
         <a class="icon-github" href="https://github.com/Wuxj0918" title="GitHub">GitHub</a>
@@ -650,14 +736,14 @@
         <ul class="affiliations">
           <li><a href="https://radar.bit.edu.cn/">Radar Technology Research Institute</a>, Key Laboratory of Electronic and Information Technology in Satellite Navigation</li>
           <li><a href="https://maps.app.goo.gl/3ZqQryukCAkGdPZb7">Beijing Institute of Technology, No. 5 Zhongguancun Avenue, Haidian District, Beijing</a></li>
-          <li>Email: <a href="mailto:3220235329@bit.edu.cn">3220235329@bit.edu.cn</a> | <a href="mailto:sample@gmail.com">sample@gmail.com</a></li>
+          <li>Email: <a href="mailto:3220235329@bit.edu.cn">3220235329@bit.edu.cn</a> | <a href="mailto:wuxj0918@gmail.com">wuxj0918@gmail.com</a></li>
         </ul>
       </div>
     </header>
 
     <section class="intro" aria-label="Introduction">
       <div class="profile-wrap">
-        <img class="profile-img" src="./assets/photo.jpg" alt="Profile photo">
+        <img class="profile-img" src="./assets/photo1.jpg" alt="Profile photo">
       </div>
 
       <p>
@@ -692,7 +778,7 @@
         <div class="news-text">
           <p>
             Reported at the <strong>Academic Conference on Radar Interferometry</strong> in Chengdu and received the
-            <a class="award-link" href="./assets/Radar_Interferometry_2026.pdf" target="_blank" rel="noopener noreferrer" aria-label="View the 2026 Excellent Conference Presentation Award certificate">Excellent Conference Presentation Award (Top 5% Awarded)</a> 🎉.
+            <a class="award-link" href="./assets/Radar_Interferometry_2026.pdf" target="_blank" rel="noopener noreferrer" aria-label="View the 2026 Excellent Conference Presentation Award certificate">Excellent Conference Presentation Award (Top 5% Awarded)</a> in 2026 🎉.
           </p>
         </div>
       </article>
@@ -702,7 +788,7 @@
         <div class="news-text">
           <p>
             Reported at the <strong>International Radar Conference</strong> in Jiaxing and received the
-            <a class="award-link" href="./assets/IRC_2025.pdf" target="_blank" rel="noopener noreferrer" aria-label="View the 2025 Excellent Paper Award certificate">Excellent Paper Award (Top 10% Awarded)</a> 🎉.
+            <a class="award-link" href="./assets/IRC_2025.pdf" target="_blank" rel="noopener noreferrer" aria-label="View the 2025 Excellent Paper Award certificate">Excellent Paper Award (Top 10% Awarded)</a> in 2025 🎉.
           </p>
         </div>
       </article>
@@ -710,22 +796,31 @@
       <article class="news-item">
         <div><span class="date-badge">Aug 08, 2025</span></div>
         <div class="news-text">
-          <p>One paper accepted at <strong class="venue-highlight">Transactions on Geoscience &amp; Remote Sensing</strong>.</p>
+          <p>One paper accepted at <strong class="venue-highlight">Transactions on Geoscience &amp; Remote Sensing</strong> in 2025.</p>
         </div>
       </article>
 
       <article class="news-item">
         <div><span class="date-badge">Aug 23, 2024</span></div>
         <div class="news-text">
-          <p>One paper accepted at <strong class="venue-highlight">Transactions on Geoscience &amp; Remote Sensing</strong>.</p>
+          <p>One paper accepted at <strong class="venue-highlight">Transactions on Geoscience &amp; Remote Sensing</strong> in 2024.</p>
         </div>
       </article>
 
       <article class="news-item">
-        <div><span class="date-badge">Oct 11, 2021</span></div>
+        <div><span class="date-badge">Dec 31, 2021</span></div>
         <div class="news-text">
           <p>
             Awarded the <a class="award-link" href="./assets/National_Scholarship_2021.pdf" target="_blank" rel="noopener noreferrer" aria-label="View the 2021 National Scholarship certificate">National Scholarship (Highest Honor, Top 1% Awarded)</a> in 2021 🎉.
+          </p>
+        </div>
+      </article>
+
+      <article class="news-item">
+        <div><span class="date-badge">Dec 07, 2021</span></div>
+        <div class="news-text">
+          <p>
+            Awarded the <strong class="award-highlight">Outstanding Senior Student Scholarship (Top 1% Awarded)</strong> in 2021 🎉.
           </p>
         </div>
       </article>
@@ -734,55 +829,109 @@
     <section class="section publications" id="publications" aria-labelledby="publications-heading">
       <h2 id="publications-heading">Selected Publications</h2>
 
-      <div class="publication-list">
-        <article class="publication-item">
-          <div class="publication-media">
-            <div class="publication-badge">TGRS 2025</div>
-            <div class="publication-image-frame">
-              <img class="publication-figure" src="./assets/2025-tgrs-fig.png" alt="Figure preview for GNSS-based InBSAR publication">
-            </div>
-          </div>
-          <div class="publication-content">
-            <h3 class="publication-title">An Adaptive High-Accuracy Terrain Phase Error Compensation Algorithm in GNSS-based InBSAR via Multi-Satellite Collaborative Observations</h3>
-            <p class="publication-authors">
-              <strong>Xiaojing Wu</strong>, Chenghao Wang, Zhanze Wang, Feifeng Liu, and Jiayu Chen
-            </p>
-            <p class="publication-venue">
-              IEEE Transactions on Geoscience and Remote Sensing <span class="publication-year">2025</span>
-            </p>
-            <div class="publication-links" aria-label="Publication links">
-              <a href="https://ieeexplore.ieee.org/document/11124205">PDF</a>
-              <span class="publication-metric">IF: 9.4</span>
-              <span class="publication-ranking">SCI Q1 Top</span>
-              <span class="publication-ranking jcr-ranking" title="Journal Citation Reports Quartile 1">JCR Q1</span>
-            </div>
-          </div>
-        </article>
+      <div class="publication-group journal-articles" aria-labelledby="journal-articles-heading">
+        <h3 class="publication-category" id="journal-articles-heading">
+          <span class="publication-category-label">Journal Articles</span>
+        </h3>
 
-        <article class="publication-item">
-          <div class="publication-media">
-            <div class="publication-badge">TGRS 2024</div>
-            <div class="publication-image-frame">
-              <img class="publication-figure" src="./assets/2024-tgrs-fig.png" alt="Figure preview for GNSS-based InBSAR publication">
+        <div class="publication-list">
+          <article class="publication-item">
+            <div class="publication-media">
+              <div class="publication-badge">TGRS 2025</div>
+              <div class="publication-image-frame">
+                <img class="publication-figure" src="./assets/2025-tgrs-fig.png" alt="Figure preview for GNSS-based InBSAR publication">
+              </div>
             </div>
-          </div>
-          <div class="publication-content">
-            <h3 class="publication-title">3-D Deformation Fields Construction based on Spatial and Temporal Continuity for GNSS-based InBSAR: Verified and Enhanced by GB-SAR</h3>
-            <p class="publication-authors">
-              <strong>Feifeng Liu<sup>*</sup></strong>, <strong>Xiaojing Wu<sup>*</sup></strong>, Zhanze Wang, Chenghao Wang, and Jiayu Chen.<br>
-              (<sup>*</sup>Co-first authors.)
-            </p>
-            <p class="publication-venue">
-              IEEE Transactions on Geoscience and Remote Sensing <span class="publication-year">2024</span>
-            </p>
-            <div class="publication-links" aria-label="Publication links">
-              <a href="https://ieeexplore.ieee.org/document/10654285">PDF</a>
-              <span class="publication-metric">IF: 9.4</span>
-              <span class="publication-ranking">SCI Q1 Top</span>
-              <span class="publication-ranking jcr-ranking" title="Journal Citation Reports Quartile 1">JCR Q1</span>
+            <div class="publication-content">
+              <h4 class="publication-title">An Adaptive High-Accuracy Terrain Phase Error Compensation Algorithm in GNSS-based InBSAR via Multi-Satellite Collaborative Observations</h4>
+              <p class="publication-authors">
+                <strong>Xiaojing Wu</strong>, Chenghao Wang, Zhanze Wang, Feifeng Liu, and Jiayu Chen
+              </p>
+              <p class="publication-venue">
+                IEEE Transactions on Geoscience and Remote Sensing <span class="publication-year">2025</span>
+              </p>
+              <div class="publication-links" aria-label="Publication links">
+                <a href="https://ieeexplore.ieee.org/document/11124205">PDF</a>
+                <span class="publication-metric">IF: 9.4</span>
+                <span class="publication-ranking">SCI Q1 Top</span>
+                <span class="publication-ranking jcr-ranking" title="Journal Citation Reports Quartile 1">JCR Q1</span>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+
+          <article class="publication-item">
+            <div class="publication-media">
+              <div class="publication-badge">TGRS 2024</div>
+              <div class="publication-image-frame">
+                <img class="publication-figure" src="./assets/2024-tgrs-fig.png" alt="Figure preview for GNSS-based InBSAR publication">
+              </div>
+            </div>
+            <div class="publication-content">
+              <h4 class="publication-title">3-D Deformation Fields Construction based on Spatial and Temporal Continuity for GNSS-based InBSAR: Verified and Enhanced by GB-SAR</h4>
+              <p class="publication-authors">
+                <strong>Feifeng Liu<sup>*</sup></strong>, <strong>Xiaojing Wu<sup>*</sup></strong>, Zhanze Wang, Chenghao Wang, and Jiayu Chen.<br>
+                (<sup>*</sup>Co-first authors.)
+              </p>
+              <p class="publication-venue">
+                IEEE Transactions on Geoscience and Remote Sensing <span class="publication-year">2024</span>
+              </p>
+              <div class="publication-links" aria-label="Publication links">
+                <a href="https://ieeexplore.ieee.org/document/10654285">PDF</a>
+                <span class="publication-metric">IF: 9.4</span>
+                <span class="publication-ranking">SCI Q1 Top</span>
+                <span class="publication-ranking jcr-ranking" title="Journal Citation Reports Quartile 1">JCR Q1</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="publication-group conference-papers" aria-labelledby="conference-papers-heading">
+        <h3 class="publication-category" id="conference-papers-heading">
+          <span class="publication-category-label">Conference Papers</span>
+        </h3>
+
+        <div class="publication-list">
+          <article class="publication-item">
+            <div class="publication-media">
+              <div class="publication-badge conference-badge">IET IRC 2025</div>
+              <a class="publication-image-frame" href="./assets/IET_IRC_PIC.png" target="_blank" rel="noopener noreferrer" aria-label="Open the full-size figure for the IET IRC 2025 paper">
+                <img class="publication-figure" src="./assets/IET_IRC_PIC.png" alt="Deformation curves after PS optimization in the GNSS-based InBSAR system">
+              </a>
+            </div>
+            <div class="publication-content">
+              <h4 class="publication-title">A Constraint-Based PS Optimization Algorithm in the GNSS-Based InBSAR System</h4>
+              <p class="publication-authors">
+                <strong>Xiaojing Wu</strong>, Feifeng Liu, and Jingtian Zhou
+                <strong class="publication-presentation-inline">(Oral<span class="author-award-separator" aria-hidden="true">·</span><span class="publication-award-inline"><span class="award-icon" aria-hidden="true">🏆</span>Excellent Paper Award</span>)</strong>
+              </p>
+              <p class="publication-venue">
+                IET International Radar Conference <span class="publication-year">2025</span>
+              </p>
+              <div class="publication-links" aria-label="Publication link">
+                <a href="https://ieeexplore.ieee.org/document/10867869">PDF</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="publication-item">
+            <div class="publication-media">
+              <div class="publication-badge conference-badge">ICSIDP 2024</div>
+              <a class="publication-image-frame" href="./assets/ICSIDP_PIC.png" target="_blank" rel="noopener noreferrer" aria-label="Open the full-size poster for the ICSIDP 2024 paper">
+                <img class="publication-figure poster-preview" src="./assets/ICSIDP_PIC.png" alt="Poster for dangerous rock masses monitoring based on the GNSS-based InBSAR system">
+              </a>
+            </div>
+            <div class="publication-content">
+              <h4 class="publication-title">Dangerous Rock Masses Monitoring Based on the GNSS-Based InBSAR System</h4>
+              <p class="publication-authors">
+                <strong>Xiaojing Wu</strong>, Feifeng Liu, Zhixiang Xu, and Jingtian Zhou <strong class="publication-presentation-inline">(Poster)</strong>
+              </p>
+              <p class="publication-venue">
+                IEEE International Conference on Signal, Information and Data Processing <span class="publication-year">2024</span>
+              </p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -790,6 +939,7 @@
       <h2 id="service-heading">Academic Service</h2>
       <ul class="academic-service-list">
         <li>Journal Reviewer for IEEE Geoscience and Remote Sensing Letters (GRSL).</li>
+        <li>Conference Reviewer for IET International Radar Conference (IET IRC).</li>
       </ul>
     </section>
   </main>
